@@ -1,0 +1,30 @@
+---
+title: "GitHub Advanced"
+author: "Chloe Mercurio"
+format: html
+execute:
+  echo: false
+---
+
+## Vehicle weight and fuel efficiency
+
+This plot uses the built-in `mtcars` data set to compare vehicle weight with
+fuel efficiency, with point color indicating the number of cylinders.
+
+```{r}
+#| label: setup
+#| message: false
+library(tidyverse)
+```
+
+```{r}
+ggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +
+  geom_point(size = 3) +
+  labs(
+    x = "Weight (1,000 lb)",
+    y = "Fuel efficiency (mpg)",
+    color = "Cylinders",
+    title = "Heavier cars tend to use more fuel"
+  ) +
+  theme_minimal()
+```
